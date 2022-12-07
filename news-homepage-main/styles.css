@@ -1,0 +1,308 @@
+:root {
+  --clr-primary-200: hsl(36, 100%, 99%);
+  --clr-secondary-700: hsl(240, 100%, 5%);
+
+  --clr-neutral-300: hsl(233, 8%, 79%);
+  --clr-neutral-400: hsl(236, 13%, 42%);
+  --clr-neutral-500: hsl(35, 77%, 62%);
+  --clr-neutral-600: hsl(5, 85%, 63%);
+
+  --fw-400: 400;
+  --fw-700: 700;
+  --fw-800: 800;
+}
+
+@font-face {
+  font-family: inter;
+  src: url(assets/fonts/Inter-VariableFont_slnt\wght.ttf);
+}
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  9. Create a root stacking context
+*/
+
+/* General styling */
+body {
+  font-family: inter, sans-serif;
+  font-size: 0.938rem;
+  height: 100vh;
+  color: var(--clr-neutral-400);
+  padding: 4rem 8rem 4rem 8rem;
+  display: grid;
+  place-items: center;
+  background-color: var(--clr-primary-200);
+}
+
+a,
+ul {
+  text-decoration: none;
+  list-style: none;
+  color: inherit;
+  font-style: inherit;
+}
+
+/* media queries */
+
+@media screen and (min-width: 1440px) {
+  .hamburger-button {
+    display: none;
+    border: 0;
+    background-color: transparent;
+  }
+  .close {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  body {
+    padding: 1rem;
+  }
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-menu.show {
+    padding: 1.5rem;
+    display: block;
+    position: absolute;
+    background-color: var(--clr-primary-200);
+    right: 0;
+    top: 0;
+    gap: 2rem;
+    font-weight: var(--fw-700);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 70%;
+    box-shadow: -61px 4px 155px 133px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: -61px 4px 155px 133px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -61px 4px 155px 133px rgba(0, 0, 0, 0.75);
+    animation: slideIn 0.4s ease-in-out forwards;
+  }
+
+  .close {
+    margin-left: auto;
+    background-color: transparent;
+    border: 0;
+  }
+  .content section:nth-child(1) {
+    grid-column: 1/-1;
+  }
+  .content section:nth-child(1) div {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .aside {
+    background-color: black;
+    grid-column: 1 / -1;
+
+    padding: 2.5rem 1.5rem;
+  }
+
+  .suggested {
+    flex-direction: column;
+  }
+}
+
+/* Utilitites */
+
+:where(.flex-column) {
+  display: flex;
+  flex-direction: column;
+}
+
+:where(.flex-row) {
+  display: flex;
+}
+
+:where(.row-gap32) {
+  row-gap: 2rem;
+}
+
+:where(.row-gap48) {
+  row-gap: 3rem;
+}
+
+:where(.column-gap32) {
+  column-gap: 2rem;
+}
+
+:where(.column-gap48) {
+  column-gap: 3rem;
+}
+:where(.gap13) {
+  gap: 0.5rem;
+}
+
+/* Block styles */
+.hamburger-button {
+  border: 0;
+  background-color: transparent;
+}
+.nav {
+  width: 100%;
+  justify-content: space-between;
+  color: var(--clr-neutral-400);
+  font-weight: var(--fw-700);
+  margin-bottom: 1.5rem;
+}
+
+.nav-menu {
+  gap: 1.5rem;
+  transition: transform 1s ease-in-out;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+:where(.content section:nth-child(1)) {
+  grid-column: 1/3;
+}
+.content__title {
+  color: var(--clr-secondary-700);
+  font-size: 2.5rem;
+  font-weight: var(--fw-800);
+  line-height: 1.1;
+}
+.content__context {
+  font-weight: var(--fw-700);
+}
+.button {
+  background-color: var(--clr-neutral-600);
+  border: 0;
+  border-radius: 5px;
+  padding: 0.8rem 1.5rem 0.8rem 1.5rem;
+  color: var(--clr-primary-200);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: var(--fw-700);
+}
+:where(.aside) {
+  background-color: black;
+  grid-column: 3/4;
+  padding: 2.5rem 1.5rem;
+  line-height: 1.7;
+}
+.aside__new {
+  color: var(--clr-neutral-500);
+  font-size: 2rem;
+}
+.aside__title {
+  color: var(--clr-primary-200);
+}
+.aside article p {
+  font-weight: var(--fw-700);
+}
+.aside article {
+  padding: 1rem 0px;
+}
+.aside article:nth-child(3) {
+  border-top: 1px solid var(--clr-neutral-300);
+  border-bottom: 1px solid var(--clr-neutral-300);
+}
+
+:where(.suggested) {
+  grid-column: 1/-1;
+}
+
+.suggested img {
+  height: auto;
+  width: 25%;
+  object-fit: contain;
+  aspect-ratio: 3/2;
+}
+
+.number {
+  font-size: 2rem;
+  color: var(--clr-neutral-300);
+}
+
+.recommendation {
+  font-weight: var(--fw-800);
+  color: var(--clr-secondary-700);
+}
+.recommendation-context {
+  font-weight: var(--fw-700);
+}
+
+li a:is(:hover, a:focus) {
+  color: var(--clr-neutral-600);
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(15rem);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+

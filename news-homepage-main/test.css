@@ -1,0 +1,25 @@
+button:hover {
+}
+
+ul {
+  display: none;
+}
+
+ul.show {
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+ul.slideIn {
+  transform: translateY(10rem);
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
