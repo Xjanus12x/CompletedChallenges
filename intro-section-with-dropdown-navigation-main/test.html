@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="open" aria-expanded="false">clkick</button>
+    <button class="close" aria-expanded="true">close</button>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+    </ul>
+  </body>
+</html>
+
+<style>
+  :where(ul) {
+    display: none;
+  }
+  [aria-expanded="true"] {
+    background-color: red;
+  }
+</style>
+
+<script defer>
+  const button1 = document.querySelector("open");
+  const button2 = document.querySelector("close");
+  const ul = document.querySelector("ul");
+
+  button1.addEventListener("click", () => {
+    const a = button1.getAttribute("aria-expanded") === "false";
+    if (a) {
+      button1.setAttribute("aria-expanded", "true");
+    }
+  });
+  button2.addEventListener("click", () => {
+    const b = button1.getAttribute("aria-expanded") === "true";
+    if (b) {
+      button1.setAttribute("aria-expanded", "false");
+    }
+  });
+</script>

@@ -21,34 +21,63 @@
     <!-- CSS styles -->
     <link rel="stylesheet" href="styles.css" />
     <title>Frontend Mentor | Intro section with dropdown navigation</title>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <!-- JS -->
+    <script src="functionality.js" defer></script>
   </head>
   <body>
     <nav class="nav | flex-row">
       <figure class="logo">
         <img src="images/logo.svg" alt="A logo of a word snap" />
       </figure>
-
-      <ul class="nav__menu | flex-row">
-        <li><button>Features</button></li>
-        <li><button>Company</button></li>
+      <button
+        class="open-menu"
+        aria-controls="primary-navigation"
+        aria-expanded="false"
+      >
+        <span class="visually-hidden">Menu</span>
+        <img aria-hidden="true" src="images/icon-menu.svg" alt="" />
+      </button>
+      <ul
+        class="nav__menu | flex-row"
+        id="primary-navigation"
+        data-state="closed"
+      >
+        <button
+          class="close-menu"
+          aria-controls="primary-navigation"
+          aria-expanded="true"
+        >
+          <span class="visually-hidden">Close Menu</span>
+          <img aria-hidden="true" src="images/icon-close-menu.svg" alt="" />
+        </button>
+        <li>
+          <button class="flex-row flex-group">
+            Features
+            <span><img src="images/icon-arrow-down.svg" alt="" /></span>
+          </button>
+        </li>
+        <li>
+          <button class="flex-row flex-group">
+            Company <span><img src="images/icon-arrow-down.svg" alt="" /></span>
+          </button>
+        </li>
         <li><a href="#">Careers</a></li>
         <li><a href="">About</a></li>
-        <li><a href="#">Login</a></li>
+        <li class="push-left"><a href="#">Login</a></li>
         <li><button>Register</button></li>
       </ul>
     </nav>
-    <main>
-      <section>
-        <h1>Make remote work</h1>
-        <p>
+    <main class="main | display-grid">
+      <section class="display-grid | description">
+        <h1 class="description__title">Make remote work</h1>
+        <p class="descritpion__introduction">
           Get your team in sync, no matter your location. Streamline processes,
           create team rituals, and watch productivity soar.
         </p>
-        <button>Learn more</button>
+        <button class="button">Learn more</button>
       </section>
-      <section>
+
+      <section class="img-container">
         <picture>
           <source
             media="(min-width:1440px)"
@@ -57,11 +86,18 @@
           <img src="images/image-hero-mobile.png" alt="" />
         </picture>
       </section>
-      <section>
-        <figure>
+
+      <section class="sponsors | flex-row">
+        <figure class="">
           <img src="images/client-databiz.svg" alt="databiz logo" />
+        </figure>
+        <figure>
           <img src="images/client-audiophile.svg" alt="audio phile logo" />
+        </figure>
+        <figure>
           <img src="images/client-meet.svg" alt="meet logo" />
+        </figure>
+        <figure>
           <img src="images/client-maker.svg" alt="maker logo" />
         </figure>
       </section>
