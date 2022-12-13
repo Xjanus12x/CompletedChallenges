@@ -25,48 +25,126 @@
     <script src="functionality.js" defer></script>
   </head>
   <body>
-    <nav class="nav | flex-row">
-      <figure class="logo">
-        <img src="images/logo.svg" alt="A logo of a word snap" />
-      </figure>
-      <button
-        class="open-menu"
-        aria-controls="primary-navigation"
-        aria-expanded="false"
-      >
-        <span class="visually-hidden">Menu</span>
-        <img aria-hidden="true" src="images/icon-menu.svg" alt="" />
-      </button>
-      <ul
-        class="nav__menu | flex-row"
-        id="primary-navigation"
-        data-state="closed"
-      >
+    <header>
+      <nav class="nav | flex-row">
+        <figure class="logo">
+          <img src="images/logo.svg" alt="A logo of a word snap" />
+        </figure>
         <button
-          class="close-menu"
+          class="open-menu"
           aria-controls="primary-navigation"
-          aria-expanded="true"
+          aria-expanded="false"
         >
-          <span class="visually-hidden">Close Menu</span>
-          <img aria-hidden="true" src="images/icon-close-menu.svg" alt="" />
+          <span class="visually-hidden">Menu</span>
+          <img aria-hidden="true" src="images/icon-menu.svg" alt="" />
         </button>
-        <li>
-          <button class="flex-row flex-group">
-            Features
-            <span><img src="images/icon-arrow-down.svg" alt="" /></span>
-          </button>
-        </li>
-        <li>
-          <button class="flex-row flex-group">
-            Company <span><img src="images/icon-arrow-down.svg" alt="" /></span>
-          </button>
-        </li>
-        <li><a href="#">Careers</a></li>
-        <li><a href="">About</a></li>
-        <li class="push-left"><a href="#">Login</a></li>
-        <li><button>Register</button></li>
-      </ul>
-    </nav>
+        <ul
+          class="nav__menu | flex-row"
+          id="primary-navigation"
+          data-state="closed"
+        >
+          <li class="flex-row">
+            <button
+              class="close-menu push-left"
+              aria-controls="primary-navigation"
+              aria-expanded="true"
+            >
+              <span class="visually-hidden">Close Menu</span>
+              <img
+                aria-hidden="true"
+                src="images/icon-close-menu.svg"
+                alt="cross icon"
+              />
+            </button>
+          </li>
+
+          <li>
+            <span class="visually-hidden">Menu</span>
+            <button
+              class="flex-row flex-group"
+              aria-expanded="false"
+              aria-controls="secondary-navigation"
+              id="toggle-secondary-navigation"
+            >
+              Features
+              <span>
+                <img src="images/icon-arrow-down.svg" alt="arrow down icon" />
+              </span>
+            </button>
+
+            <ul
+              class="secondary-navigation flex-column |"
+              id="secondary-navigation"
+              data-state="closed"
+            >
+              <li>
+                <figure class="flex-row align-center gap">
+                  <div>
+                    <img src="images/icon-todo.svg" alt="Todo icon" />
+                  </div>
+                  <figcaption>Todo List</figcaption>
+                </figure>
+              </li>
+
+              <li>
+                <figure class="flex-row align-center gap">
+                  <div>
+                    <img src="images/icon-calendar.svg" alt="Calendar icon" />
+                  </div>
+                  <figcaption>Calendar</figcaption>
+                </figure>
+              </li>
+
+              <li>
+                <figure class="flex-row align-center gap">
+                  <div>
+                    <img src="images/icon-reminders.svg" alt="Bell icon" />
+                  </div>
+                  <figcaption>Reminders</figcaption>
+                </figure>
+              </li>
+
+              <li>
+                <figure class="flex-row align-center gap">
+                  <div>
+                    <img src="images/icon-planning.svg" alt="Clock icon" />
+                  </div>
+                  <figcaption>Planning</figcaption>
+                </figure>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <span class="visually-hidden">Menu</span>
+            <button
+              class="flex-row flex-group"
+              aria-expanded="false"
+              aria-controls="tertiary-navigation"
+              id="tertiary-toggle-menu"
+            >
+              Company
+              <span><img src="images/icon-arrow-down.svg" alt="" /></span>
+            </button>
+            <ul
+              class="tertiary-navigation"
+              id="tertiary-navigation"
+              data-state="closed"
+            >
+              <li><a href="#">History</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </li>
+
+          <li><a href="#">Careers</a></li>
+
+          <li><a href="#">About</a></li>
+          <li><a href="#">Login</a></li>
+          <li><button>Register</button></li>
+        </ul>
+      </nav>
+    </header>
     <main class="main | display-grid">
       <section class="display-grid | description">
         <h1 class="description__title">Make remote work</h1>
