@@ -67,8 +67,18 @@
               id="toggle-secondary-navigation"
             >
               Features
-              <span>
-                <img src="images/icon-arrow-down.svg" alt="arrow down icon" />
+              <span id="set1icons">
+                <img
+                  id="arrow-up1"
+                  src="images/icon-arrow-down.svg"
+                  alt="arrow down icon"
+                />
+                <img
+                  id="arrow-up2"
+                  src="images/icon-arrow-up.svg"
+                  alt="arrow up icon"
+                  style="display: none"
+                />
               </span>
             </button>
 
@@ -124,7 +134,19 @@
               id="tertiary-toggle-menu"
             >
               Company
-              <span><img src="images/icon-arrow-down.svg" alt="" /></span>
+              <span id="set2icons">
+                <img
+                  id="arrow-up1"
+                  src="images/icon-arrow-down.svg"
+                  alt="arrow down icon"
+                />
+                <img
+                  id="arrow-up2"
+                  src="images/icon-arrow-up.svg"
+                  alt="arrow up icon"
+                  style="display: none"
+                />
+              </span>
             </button>
             <ul
               class="tertiary-navigation"
@@ -146,15 +168,26 @@
       </nav>
     </header>
     <main class="main | display-grid">
-      <section class="display-grid | description">
-        <h1 class="description__title">Make remote work</h1>
-        <p class="descritpion__introduction">
-          Get your team in sync, no matter your location. Streamline processes,
-          create team rituals, and watch productivity soar.
-        </p>
-        <button class="button">Learn more</button>
-      </section>
+      <div class="wrapper">
+        <section class="display-grid | description">
+          <h1 class="description__title">Make remote work</h1>
+          <p class="descritpion__introduction">
+            Get your team in sync, no matter your location. Streamline
+            processes, create team rituals, and watch productivity soar.
+          </p>
+          <button class="button">Learn more</button>
+        </section>
 
+        <section class="sponsors | flex-row">
+          <img src="images/client-databiz.svg" alt="databiz logo" />
+
+          <img src="images/client-audiophile.svg" alt="audio phile logo" />
+
+          <img src="images/client-meet.svg" alt="meet logo" />
+
+          <img src="images/client-maker.svg" alt="maker logo" />
+        </section>
+      </div>
       <section class="img-container">
         <picture>
           <source
@@ -163,21 +196,6 @@
           />
           <img src="images/image-hero-mobile.png" alt="" />
         </picture>
-      </section>
-
-      <section class="sponsors | flex-row">
-        <figure class="">
-          <img src="images/client-databiz.svg" alt="databiz logo" />
-        </figure>
-        <figure>
-          <img src="images/client-audiophile.svg" alt="audio phile logo" />
-        </figure>
-        <figure>
-          <img src="images/client-meet.svg" alt="meet logo" />
-        </figure>
-        <figure>
-          <img src="images/client-maker.svg" alt="maker logo" />
-        </figure>
       </section>
     </main>
   </body>

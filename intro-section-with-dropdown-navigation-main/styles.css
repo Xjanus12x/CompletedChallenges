@@ -84,7 +84,18 @@ button {
   text-decoration: none;
   color: inherit;
 }
-
+.nav__menu li:last-child > button {
+  background-color: transparent;
+  border: 2px solid var(--clr-secondary-500);
+  border-radius: 15px;
+}
+.nav__menu li > * {
+  cursor: pointer;
+}
+.nav__menu li > *:hover {
+  color: var(--clr-tertiary-900);
+  font-weight: var(--fw-bold);
+}
 /* Utilities */
 :where(.flex-row) {
   display: flex;
@@ -120,7 +131,9 @@ button {
 }
 
 /* Block styling */
-
+.sponsors {
+  justify-content: space-evenly;
+}
 .semi-dark::after {
   content: "";
   height: 100%;
@@ -132,32 +145,10 @@ button {
   opacity: 0.7;
 }
 
-/* .nav {
-  gap: var(--gap, 2rem);
-  padding: 2rem 2rem;
-}
-.nav__menu {
-  --gap: 2.5rem;
-  width: 100%;
-  gap: var(--gap);
-  
-}
-.nav__menu li > * {
-  cursor: pointer;
-}
-*/
 .nav__menu :is(:nth-child(1), :nth-child(2), :nth-child(3)) > button {
   background-color: transparent;
   border: 0;
   padding: 0;
-}
-
-.nav {
-}
-
-.open-menu {
-  background-color: transparent;
-  border: 0;
 }
 
 .main {
@@ -177,8 +168,66 @@ button {
   border-radius: 15px;
 }
 
-.sponsors {
-  gap: 2rem;
+@media screen and (min-width: 1440px) {
+  .nav {
+    padding: 2rem 2rem;
+  }
+  .logo {
+    justify-self: center;
+    align-self: center;
+  }
+  .nav__menu {
+    --gap: 2.5rem;
+    width: 100%;
+    gap: var(--gap);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .open-menu,
+  .close-menu {
+    display: none;
+  }
+
+  .nav__menu li:last-child > button {
+    padding: 0.5rem 1.2rem;
+  }
+
+  .nav__menu li:nth-child(6) {
+    margin-left: auto;
+  }
+  .secondary-navigation,
+  .tertiary-navigation {
+    display: none;
+  }
+
+  .button {
+    justify-self: flex-start;
+  }
+
+  .main {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12rem;
+    padding: 8rem;
+  }
+  .description {
+    max-height: 0;
+    padding: 5rem 0;
+    gap: 3rem;
+  }
+
+  .description h1 {
+    font-size: 6rem;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    line-height: 1.2;
+    padding: 7rem 0;
+    gap: 2rem;
+  }
 }
 
 @media screen and (max-width: 375px) {
@@ -186,6 +235,10 @@ button {
   .nav {
     justify-content: space-between;
     padding: 1rem;
+  }
+  .open-menu {
+    background-color: transparent;
+    border: 0;
   }
   .main {
     grid-template-columns: 1fr;
@@ -203,6 +256,10 @@ button {
     --mobile-gap: 1rem;
     gap: var(--mobile-gap);
     place-items: center;
+  }
+  .sponsors {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
   }
   .nav__menu {
     flex-direction: column;
@@ -227,16 +284,14 @@ button {
   .nav__menu li:last-child {
     display: grid;
   }
-  .nav__menu li:last-child > button {
-    background-color: transparent;
-    border: 2px solid var(--clr-secondary-500);
-    padding: 0.3rem 0px;
-    border-radius: 15px;
-  }
+
   .close-menu {
     margin-bottom: 2rem;
   }
-
+  .sponsors {
+    gap: 1rem;
+    padding: 3rem 0;
+  }
   /*button state for primary navigation*/
   .nav__menu[data-state="opened"] {
     animation: slideIn 0.3s ease forwards;
@@ -247,25 +302,25 @@ button {
   .nav__menu[data-state="closed"] {
     display: none;
   }
+
   /* Secondary nagivation */
-  .secondary-navigation[data-state="opened"] {
+  /*        and           */
+  /* Tertiary navigation  */
+  /*      States          */
+  :is(
+      .secondary-navigation[data-state="opened"],
+      .tertiary-navigation[data-state="opened"]
+    ) {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     padding: 1rem 1.2rem;
-  }
-  .secondary-navigation[data-state="closed"] {
-    display: none;
   }
 
-  /* Tertiary navigation */
-  .tertiary-navigation[data-state="opened"] {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem 1.2rem;
-  }
-  .tertiary-navigation[data-state="closed"] {
+  :is(
+      .secondary-navigation[data-state="closed"],
+      .tertiary-navigation[data-state="closed"]
+    ) {
     display: none;
   }
 }
@@ -298,7 +353,4 @@ button {
   100% {
     transform: translateX(15rem);
   }
-}
-
-@keyframes slideDown {
 }
