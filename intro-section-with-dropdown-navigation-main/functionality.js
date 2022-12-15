@@ -43,14 +43,26 @@ primaryNavigationCloseButton.addEventListener("click", () => {
 });
 
 // Secondary navigation functionality
-menuEventListener(secondaryNavigationButton, secondaryNavigation, 1);
+menuEventListener(secondaryNavigationButton, secondaryNavigation, 1, "click");
+menuEventListener(
+  secondaryNavigationButton,
+  secondaryNavigation,
+  1,
+  "mouseover"
+);
 
 // Tertiary navigation functionality
-menuEventListener(tertiaryNavigationButton, tertiaryNavigation, 2);
+menuEventListener(tertiaryNavigationButton, tertiaryNavigation, 2, "click");
+menuEventListener(tertiaryNavigationButton, tertiaryNavigation, 2, "mouseover");
 
 // event listener in a function
-function menuEventListener(activeButton, navigationName, groupNumberOfIcons) {
-  activeButton.addEventListener("click", () => {
+function menuEventListener(
+  activeButton,
+  navigationName,
+  groupNumberOfIcons,
+  mouseevent
+) {
+  activeButton.addEventListener(`${mouseevent}`, () => {
     const isOpened = activeButton.getAttribute("aria-expanded") === "true";
     isOpened
       ? closeMenu(activeButton, navigationName, groupNumberOfIcons)
